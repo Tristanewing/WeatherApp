@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Gulp Demo</title>
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<!-- endbower -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/styles/index.css">
+	<!-- endinject -->
+</head>
+
+<body ng-controller="WeatherController as vm">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+			
+				<div class="panel panel-default">
+					<div class="panel-heading">
+
+					<h1>Weather App</h1>  </div>
+					<div class="panel-body">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="">Enter Location </label>  
+							<div class="col-md-6">
+								<input type="text" placeholder="Enter location here" ng-model="vm.location" ng-model="vm.history"></input>
+								<button class="btn btn-primary" ng-click="vm.getWeather()">Go!</button>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="panel-group">
+					<div class="panel panel-default">
+						<div class="panel-body" id="cityInfo">City Information</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+
+							<table>
+
+								<tr>
+									<h1 id="thead"> {{ vm.name }} <h1>
+
+									</tr>
+
+									<tr>
+										<div>
+
+											<td class="col-md-4"> Temperature (F) 
+
+												<p>{{ vm.temp }}</p>
+											</td>
+
+										</div>
+
+										<div>
+											<td> Pressure 
+
+												<p>{{ vm.pressure }}</p>
+
+											</td>
+
+										</div>
+										<div>
+
+											<td> Humidity 
+
+												<p>{{vm.humidity}}</p>
+											</td>
+										</div>
+									</tr>
+
+									<tr>
+										<div>
+											<td>  Lowest Temp (F)  
+
+												<p>{{ vm.tempMin }}</p>
+											</td>
+										</div>
+										<div>
+
+											<td> Highest Temp (F) 				
+
+												<p>{{ vm.tempMax }}</p>
+											</td>
+										</div>
+										<div>
+
+											<td> Wind Speed  
+
+												<p>{{ vm.wind }}</p>
+											</td>
+
+										</div>
+
+
+
+
+
+									</tr>
+
+
+
+
+
+								</table>
+
+
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="col-md-6">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Search History</div>
+					<div class="panel-body">
+					
+					<ul>
+
+					<li ng-repeat="name in vm.history">  {{ name }} </li>
+
+					</ul>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- bower:js -->
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<!-- endbower -->
+
+		<!-- inject:js -->
+		<script src="/app/app.js"></script>
+		<script src="/app/weather.controller.js"></script>
+		<script src="/app/weather.factory.js"></script>
+		<!-- endinject -->
+	</body>
+	</html>
